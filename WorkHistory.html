@@ -24,25 +24,47 @@
         <div class="item">
             <h2>Work History</h2>
             <p>
-                <strong>Unity Developer Intern</strong><br>
-                45 Upper College Rd, Kingston, RI 02881<br>
+                <strong>Software Developer Intern</strong>
+                <br>University of Rhode Island<br>
                 9/24/23 - Present
             </p>
             <ul>
-                <li>Contributed building virtual lab environments, allowing users to simulate experiments with
+                <li>Developed virtual lab environments in Unity, allowing users to simulate experiments with
                 complex and expensive lab equipment.</li>
-                <li>Modeled the URI Medicinal Garden for exploring molecules in medicinal significant plants.</li>
-                <li>Optimized performance for the Meta Quest 3, improving frame rates by baking lighting, and
-                optimizing geometry, reducing draw calls.</li>
-                <li>Designed custom shaders and animations to enhance the visual quality and interactivity of the
-                application.</li>
-                <li>Contributed to presentations and demos for students, high school teachers, and industry
-                professionals to showcase the project’s impact.</li>
+                <li>Modeled and animated 3D assets using Blender</li>
+                <li>Implemented the 3D and VR controls 
+                <li>Optimized performance for the Meta Quest 3</li>
+                <li>Contributed to presentations and demos</li>
             </ul>
         </div>
         
         <div class="images">
-            <img class="img" src="Images/Garden.png" alt="Garden">
+            <div class="slider-container">
+                <!-- Button outside left side -->
+                <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                
+                <!-- Image container with multiple images -->
+                <div class="slider-images">
+                    <img class="slide-img active" src="Images/Garden.png" alt="Garden">
+                    <img class="slide-img" src="Images/Information.png" alt="Lab Environment">
+                    <img class="slide-img" src="Images/GardenTaxol.png" alt="Garden Taxol">
+                    <img class="slide-img" src="Images/Molecules.png" alt="Molecule Model">
+                    
+                    <!-- Add more images as needed -->
+                </div>
+                
+                <!-- Button outside right side -->
+                <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
+            </div>
+            
+            <!-- Optional: Add dots/indicators -->
+            <div class="slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+                <!-- Add more dots to match the number of images -->
+            </div>
         </div>
     </div>
 

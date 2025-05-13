@@ -72,3 +72,75 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contact-form').addEventListener('submit', sendEmail);
     }
 });
+
+// Track current slide index
+let currentSlide = 0;
+
+// Initialize slider once DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize if slider elements exist on the page
+    if (document.querySelector('.slider-container')) {
+        initSlider();
+    }
+});
+
+function initSlider() {
+    const slides = document.querySelectorAll('.slide-img');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    // If no slides, exit the function
+    if (slides.length === 0) return;
+    
+    // Set up event listeners for buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            changeSlide(currentSlide - 1);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            changeSlide(currentSlide + 1);
+        });
+    }
+    
+    // Set up event listeners for dots
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-index'));
+            changeSlide(slideIndex);
+        });
+    });
+    
+    // Function to change slides
+    function changeSlide(index) {
+        // Handle wrapping around
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+        
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        
+        // Update current slide index
+        currentSlide = index;
+    }
+    
+    // Optional: Auto-slide functionality
+    /*
+    setInterval(function() {
+        changeSlide(currentSlide + 1);
+    }, 5000); // Change image every 5 seconds
+    */
+}

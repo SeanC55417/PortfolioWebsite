@@ -36,21 +36,22 @@ body::before {
 /* Typography */
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 2.5rem;
     color: #2c3e50;
 }
 
 h2 {
     font-size: 1.5rem;
-    margin: 15px 0;
+    margin: 10px;
     color: #2c3e50;
 }
 
 p {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    margin: 10px;
 }
 
 /* Navigation */
@@ -59,7 +60,7 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .NavButton {
@@ -105,18 +106,18 @@ p {
 
 .item {
     background-color: rgba(255, 255, 255, 0.880);
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 280px;
+    align-self: flex-start;
+    max-width: 50%;
+    width: 100%;
 }
 
-/* Images */
 .images {
     flex: 1;
     min-width: 280px;
-    max-width: 600px;
+    max-width: 45%;
 }
 
 .img {
@@ -168,7 +169,7 @@ a:hover {
     width: 75;
     height: 75px;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
 }
 
@@ -335,6 +336,114 @@ ul + .Logo, ul + .ToolsLogo {
     cursor: not-allowed;
 }
 
+#WorkHistory {
+    max-width: 600px;
+}
+
+/* Image Slider Styles */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+    gap: 0px; /* Space between buttons and image */
+}
+
+.slider-images {
+    position: relative;
+    flex: 1; /* Take up available space between buttons */
+    height: 380px; /* Adjust height as needed */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide-img.active {
+    opacity: 1;
+}
+
+/* Vertical rectangle buttons outside image */
+.slider-btn {
+    height: 380px; /* Same height as image */
+    width: 45px; /* Width of the button */
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Optional: Slider dots/indicators */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #3498db;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .slider-container {
+        flex-direction: row; /* Keep horizontal layout */
+    }
+    
+    .slider-btn {
+        width: 30px;
+        height: 300px; /* Smaller height for mobile */
+        font-size: 18px;
+    }
+    
+    .slider-images {
+        height: 300px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .slider-container {
+        gap: 5px; /* Less space between buttons and image */
+    }
+    
+    .slider-btn {
+        width: 25px;
+    }
+}
 /* Media Queries */
 @media (max-width: 768px) {
     h1 {
