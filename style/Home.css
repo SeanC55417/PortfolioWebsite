@@ -1,148 +1,375 @@
-
-h1
-{
-    text-align: center;
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h2
-{
-    font-size: 20px;
-    margin-top: 0;
-}
-
-img
-{
-    width: 100%;
-    min-width: 75px;
-    /* max-width: 200px; */
-}
-
-a
-{
-    font-size: larger;
-}
-
-div
-{
-    /* padding: 5px; */
-    height: 100%;
-}
-
-p
-{
+html, body {
+    min-height: 100vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    margin-top: 0;
-    margin-bottom: 0;
-    max-width: 500px;
+    background-image: url('../Images/background.png'); /* You'll need to add this image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
 }
 
-#ContactInfo
-{
-    text-align: center;
-}
-
-body
-{
-    background-color: rgb(226, 241, 254);;
-}
-
-html
-{
-    background-color: rgb(226, 241, 254);
-    padding-left: 3%;
-    padding-right: 3%;
-}
-
-i
-{
-    color: blue;
-}
-
-.link
-{
-    color: rgb(37, 30, 173);
-}
-
-.NavButton
-{
-    height: 40px;
-    padding: 10px;
-    background-color: rgb(204, 232, 249);
-}
-
-.Nav
-{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.text
-{
-    width: 100%;
-    min-width: 400px;
-    max-width: 600px;
-    padding: 10px;
-}
-
-.container
-{
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap */
-    gap: 20px; /* Space between columns */
+body {
     padding: 20px;
-    justify-content:space-around;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.images
-{
-    flex: 1;
-    max-width: 100%;
-    min-width: 400px;
-    height: auto;
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(226, 241, 254, 0.85); /* Semi-transparent background */
+    z-index: -1;
 }
 
-.Logo
-{
-    display: grid;
-    grid-template-columns: 90px 75px 110px 75px 90px 10px;
-    margin-bottom: 15px;
-    align-items: center;
-    margin-left: -40px;
-    justify-content: space-between;
-}
-
-footer
-{
-    background-color:rgb(214, 231, 246);
+/* Typography */
+h1 {
     text-align: center;
-    font-size: 25px;
-    height: 90px;
-    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #2c3e50;
 }
 
-.ToolsLogo
-{
-    display: grid;
-    grid-template-columns: 80px 105px 108px 82px 80px;
-    margin-top: 20px;
-    margin-left: -10px;
-    justify-content:space-between;
+h2 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Navigation */
+.Nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 30px;
 }
 
-.item
-{
-    min-width: 200px; /* Minimum width for each column */
-    background-color: rgb(192, 227, 239);
-    padding: 20px;
-    max-width: 600px;
-    height: 100%;
+.NavButton {
+    padding: 10px 20px;
+    background-color: #c5e1f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    min-width: 120px;
 }
 
-.verticalContainer
-{
-    flex-direction: row;
-    /* width: 100%; */
+.NavButton:hover {
+    background-color: #a1c4e1;
+    transform: translateY(-2px);
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.verticalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.text {
+    background-color: rgba(255, 255, 255, 0.880);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.880);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Images */
+.images {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+}
+
+.img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Lists */
+ul {
+    list-style-position: inside;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    color: #2980b9;
+}
+
+/* Logo containers */
+.Logo, .ToolsLogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    /* background-color: rgba(255, 255, 255, 0.6); */
+    padding: 6px;
+    border-radius: 8px;
+}
+
+/* Logo images */
+.Logo img, .ToolsLogo img {
+    width: 75;
+    height: 75px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Hover effect for logos */
+.Logo img:hover, .ToolsLogo img:hover {
+    transform: scale(1.15);
+}
+
+/* Ensure proper spacing before and after logo sections */
+.Logo + ul, .ToolsLogo + div {
+    margin-top: 20px;
+}
+
+ul + .Logo, ul + .ToolsLogo {
+    margin-top: 15px;
+}
+
+/* Profile Container */
+.profile-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 15px;
+}
+
+.profile-image img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsive adjustments for the profile image */
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .item, .profile-container {
+        width: 90%;
+        max-width: 550px;
+    }
+    
+    .profile-container {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .item, .profile-container {
+        padding: 15px;
+    }
+}
+.project-item {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.project-item h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Contact Form Styles */
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-form h3 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Form status messages */
+#form-status {
+    margin-bottom: 15px;
+}
+
+.success-message {
+    padding: 10px;
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+    border-radius: 4px;
+    border-left: 4px solid #2e7d32;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    padding: 10px;
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+    border-radius: 4px;
+    border-left: 4px solid #c62828;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.submit-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    footer {
+        font-size: 0.9rem;
+    }
+    
+    .Nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .NavButton {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .contact-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .text, .item {
+        padding: 15px;
+    }
 }
