@@ -434,7 +434,35 @@ ul + .Logo, ul + .ToolsLogo {
     background-color: #3498db;
 }
 
+/* Project image container */
+.DreamShareImages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* Project image sizing */
+.DreamShareImages img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the container layout more responsive */
+@media (max-width: 768px) {
+    .DreamShareImages img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .DreamShareImages img {
+        max-height: 250px;
+    }
+}
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
