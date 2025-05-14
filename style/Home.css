@@ -128,14 +128,42 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-self: flex-start;
-    width: 100%;
 }
 
+/* Add these CSS updates to your Home.css file */
+
+/* Make all slider containers consistent */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px; /* Reduced from 15px to create less space */
+    gap: 0px;
+}
+
+/* Standardize the slider dots positioning */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    position: relative; /* Add position relative */
+    z-index: 5; /* Ensure dots appear above other elements */
+    clear: both; /* Prevent floating issues */
+}
+
+/* Fix the images container and layout */
 .images {
     flex: 1;
     min-width: 280px;
-    /* max-width: 45%; */
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 20px; Add consistent margin to the bottom of image sections */
+}
+
+/* Add this class to standardize the verticalContainer that contains sliders */
+.verticalContainer .images {
+    width: 100%;
 }
 
 .img {
@@ -147,7 +175,7 @@ p {
 /* Lists */
 ul {
     list-style-position: inside;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     padding-left: 15px;
 }
 
@@ -358,16 +386,6 @@ ul + .Logo, ul + .ToolsLogo {
     max-width: 600px;
 }
 
-/* Image Slider Styles */
-.slider-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 15px;
-    gap: 0px; /* Space between buttons and image */
-}
 
 .slider-images {
     position: relative;
@@ -411,13 +429,6 @@ ul + .Logo, ul + .ToolsLogo {
 
 .slider-btn:hover {
     background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Optional: Slider dots/indicators */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    /* margin-top: 15px; */
 }
 
 .dot {
