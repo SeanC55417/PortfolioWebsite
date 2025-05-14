@@ -161,21 +161,10 @@ p {
     /* margin-bottom: 20px; Add consistent margin to the bottom of image sections */
 }
 
-/* Add this class to standardize the verticalContainer that contains sliders */
-.verticalContainer .images {
-    width: 100%;
-}
-
-.img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 /* Lists */
 ul {
     list-style-position: inside;
-    /* margin-bottom: 15px; */
     padding-left: 15px;
 }
 
@@ -205,7 +194,6 @@ a:hover {
     justify-content: center;
     gap: 30px;
     margin: 25px 0;
-    /* background-color: rgba(255, 255, 255, 0.6); */
     padding: 6px;
     border-radius: 8px;
 }
@@ -445,6 +433,8 @@ ul + .Logo, ul + .ToolsLogo {
 .dot.active {
     background-color: #3498db;
 }
+
+
 
 /* Mobile adjustments */
 @media (max-width: 768px) {

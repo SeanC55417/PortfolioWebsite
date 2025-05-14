@@ -24,40 +24,42 @@
     <!-- Main Content with controlled width -->
     <div class="container">
         <!-- Contact Information Container -->
-        <div class="item" id="ContactInfo">
-            <h2>Contact Information</h2>
-            <div class="contact-details">
-                <p><strong>Email:</strong> SeanChin55417@gmail.com</p>
-                <p><strong>Phone Number:</strong> (401)699-1947</p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sean-chin417">linkedin.com/in/sean-chin417</a></p>
-            </div>
-            
-            <div class="contact-form">
-                <h3>Send me a message</h3>
-                <div id="form-status"></div>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" id="submit-btn" class="submit-btn">Send Message</button>
-                </form>
+        <div class="verticalContainer" id="ContactInfo">
+            <div class="item"> 
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <p><strong>Email:</strong> SeanChin55417@gmail.com</p>
+                    <p><strong>Phone Number:</strong> (401)699-1947</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sean-chin417">linkedin.com/in/sean-chin417</a></p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send me a message</h3>
+                    <div id="form-status"></div>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submit-btn" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
         
         <!-- Profile Image Container -->
-        <div class="profile-container">
+        <div class="verticalContainer", class="item">
             <div class="profile-image">
                 <img src="Images/me.png" alt="Sean Chin Profile Photo">
             </div>
