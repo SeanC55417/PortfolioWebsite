@@ -43,7 +43,7 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    margin: 10px;
+    margin: 10px;;
     color: #2c3e50;
 }
 
@@ -53,6 +53,7 @@ p {
     /* margin-bottom: 15px; */
     margin: 10px;
 }
+
 
 /* Navigation */
 .Nav {
@@ -97,6 +98,24 @@ p {
     min-width: 280px;
 }
 
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.job-title {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.job-date {
+    text-align: right;
+    color: #666;
+    font-style: italic;
+}
+
 .text {
     background-color: rgba(255, 255, 255, 0.880);
     padding: 10px;
@@ -110,14 +129,13 @@ p {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     align-self: flex-start;
-    max-width: 50%;
     width: 100%;
 }
 
 .images {
     flex: 1;
     min-width: 280px;
-    max-width: 45%;
+    /* max-width: 45%; */
 }
 
 .img {
@@ -399,7 +417,7 @@ ul + .Logo, ul + .ToolsLogo {
 .slider-dots {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .dot {

@@ -60,35 +60,39 @@ function sendEmail(event) {
         submitButton.disabled = false;
     });
 }
+// Update this section in your PortfolioActions.js file
+// Replace the current slider code with this improved version
 
-// Initialize EmailJS when the page loads (for contact page)
-document.addEventListener('DOMContentLoaded', function() {
-    // Only initialize if we're on the contact page
-    if (document.getElementById('contact-form')) {
-        // Initialize EmailJS with your user ID
-        emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS user ID
-        
-        // Add event listener to the contact form
-        document.getElementById('contact-form').addEventListener('submit', sendEmail);
-    }
-});
-
-// Track current slide index
-let currentSlide = 0;
+// Track current slide index for each slider
+const sliderStates = {};
 
 // Initialize slider once DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Only initialize if slider elements exist on the page
-    if (document.querySelector('.slider-container')) {
-        initSlider();
-    }
+    // Find all sliders on the page
+    const sliders = document.querySelectorAll('.slider-container');
+    
+    // If no sliders, exit the function
+    if (sliders.length === 0) return;
+    
+    // Initialize each slider
+    sliders.forEach(slider => {
+        const sliderId = slider.id;
+        
+        // Initialize state for this slider
+        sliderStates[sliderId] = {
+            currentSlide: 0
+        };
+        
+        initializeSlider(sliderId);
+    });
 });
 
-function initSlider() {
-    const slides = document.querySelectorAll('.slide-img');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+function initializeSlider(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const slides = slider.querySelectorAll('.slide-img');
+    const dots = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`).querySelectorAll('.dot');
+    const prevBtn = slider.querySelector('.prev-btn');
+    const nextBtn = slider.querySelector('.next-btn');
     
     // If no slides, exit the function
     if (slides.length === 0) return;
@@ -96,13 +100,13 @@ function initSlider() {
     // Set up event listeners for buttons
     if (prevBtn) {
         prevBtn.addEventListener('click', function() {
-            changeSlide(currentSlide - 1);
+            changeSlide(sliderId, sliderStates[sliderId].currentSlide - 1);
         });
     }
     
     if (nextBtn) {
         nextBtn.addEventListener('click', function() {
-            changeSlide(currentSlide + 1);
+            changeSlide(sliderId, sliderStates[sliderId].currentSlide + 1);
         });
     }
     
@@ -110,37 +114,33 @@ function initSlider() {
     dots.forEach(dot => {
         dot.addEventListener('click', function() {
             const slideIndex = parseInt(this.getAttribute('data-index'));
-            changeSlide(slideIndex);
+            changeSlide(sliderId, slideIndex);
         });
     });
+}
+
+function changeSlide(sliderId, index) {
+    const slider = document.getElementById(sliderId);
+    const slides = slider.querySelectorAll('.slide-img');
+    const dots = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`).querySelectorAll('.dot');
     
-    // Function to change slides
-    function changeSlide(index) {
-        // Handle wrapping around
-        if (index < 0) {
-            index = slides.length - 1;
-        } else if (index >= slides.length) {
-            index = 0;
-        }
-        
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        slides[index].classList.add('active');
-        if (dots[index]) {
-            dots[index].classList.add('active');
-        }
-        
-        // Update current slide index
-        currentSlide = index;
+    // Handle wrapping around
+    if (index < 0) {
+        index = slides.length - 1;
+    } else if (index >= slides.length) {
+        index = 0;
     }
     
-    // Optional: Auto-slide functionality
-    /*
-    setInterval(function() {
-        changeSlide(currentSlide + 1);
-    }, 5000); // Change image every 5 seconds
-    */
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    if (dots[index]) {
+        dots[index].classList.add('active');
+    }
+    
+    // Update current slide index for this slider
+    sliderStates[sliderId].currentSlide = index;
 }
