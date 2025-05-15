@@ -1,4 +1,4 @@
-// Improved Portfolio Actions
+// Portfolio Actions
 // Main JavaScript file for Sean Chin's Portfolio
 
 // Legacy redirect functions (for multi-page version)
@@ -96,16 +96,42 @@ function sendEmail(event) {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     
-    // Send email using EmailJS
-    emailjs.send('service_id', 'template_id', {
-        from_name: name,
-        reply_to: email,
-        message: message
-    })
-    .then(function() {
-        // Show success message
+    // Check if EmailJS is defined
+    if (typeof emailjs !== 'undefined') {
+        // Send email using EmailJS
+        emailjs.send('service_id', 'template_id', {
+            from_name: name,
+            reply_to: email,
+            message: message
+        })
+        .then(function() {
+            // Show success message
+            document.getElementById('form-status').innerHTML = 
+                '<div class="success-message">Message sent successfully!</div>';
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+            
+            // Reset button
+            submitButton.innerText = originalButtonText;
+            submitButton.disabled = false;
+        })
+        .catch(function(error) {
+            // Show error message
+            document.getElementById('form-status').innerHTML = 
+                '<div class="error-message">Failed to send message. Please try again.</div>';
+            
+            // Log error to console
+            console.error('EmailJS error:', error);
+            
+            // Reset button
+            submitButton.innerText = originalButtonText;
+            submitButton.disabled = false;
+        });
+    } else {
+        // If EmailJS is not available, display a demo message
         document.getElementById('form-status').innerHTML = 
-            '<div class="success-message">Message sent successfully!</div>';
+            '<div class="success-message">Message sent successfully! (Demo only)</div>';
         
         // Reset form
         document.getElementById('contact-form').reset();
@@ -113,39 +139,15 @@ function sendEmail(event) {
         // Reset button
         submitButton.innerText = originalButtonText;
         submitButton.disabled = false;
-    })
-    .catch(function(error) {
-        // Show error message
-        document.getElementById('form-status').innerHTML = 
-            '<div class="error-message">Failed to send message. Please try again.</div>';
-        
-        // Log error to console
-        console.error('EmailJS error:', error);
-        
-        // Reset button
-        submitButton.innerText = originalButtonText;
-        submitButton.disabled = false;
-    });
+    }
 }
 
 // Initialize contact form
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            // If EmailJS is not set up, show a demo message
-            if (typeof emailjs === 'undefined') {
-                event.preventDefault();
-                
-                // Display a success message (for demo purposes)
-                document.getElementById('form-status').innerHTML = 
-                    '<div class="success-message">Message sent successfully! (Demo only)</div>';
-                
-                // Reset form
-                contactForm.reset();
-            }
-            // Otherwise, the sendEmail function will be called via the onsubmit attribute
-        });
+        // Event listener already handled via onsubmit="sendEmail(event)" in HTML
+        // This function is for additional form initialization if needed
     }
 }
 
@@ -188,13 +190,17 @@ function initSliders() {
 
 function initializeSlider(sliderId) {
     const slider = document.getElementById(sliderId);
+    if (!slider) return;
+    
     const slides = slider.querySelectorAll('.slide-img');
-    const dots = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`).querySelectorAll('.dot');
+    if (slides.length === 0) return;
+    
+    const dotContainer = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`);
+    if (!dotContainer) return;
+    
+    const dots = dotContainer.querySelectorAll('.dot');
     const prevBtn = slider.querySelector('.prev-btn');
     const nextBtn = slider.querySelector('.next-btn');
-    
-    // If no slides, exit the function
-    if (slides.length === 0) return;
     
     // Set up event listeners for buttons
     if (prevBtn) {
@@ -285,8 +291,15 @@ function startAutoPlay(sliderId) {
 
 function changeSlide(sliderId, index) {
     const slider = document.getElementById(sliderId);
+    if (!slider) return;
+    
     const slides = slider.querySelectorAll('.slide-img');
-    const dots = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`).querySelectorAll('.dot');
+    if (slides.length === 0) return;
+    
+    const dotContainer = document.querySelector(`.slider-dots[data-slider="${sliderId}"]`);
+    if (!dotContainer) return;
+    
+    const dots = dotContainer.querySelectorAll('.dot');
     
     // Handle wrapping around
     if (index < 0) {
