@@ -8,7 +8,8 @@
 html, body {
     min-height: 100vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: url('../Images/background.png'); /* You'll need to add this image */
+    /* background-image: url('../Images/background.png'); */
+    background-color: #ffffff;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -95,7 +96,8 @@ p {
     flex-direction: column;
     gap: 20px;
     flex: 1;
-    min-width: 280px;
+    min-width: 100px;
+    max-width: 800px;
 }
 
 .job-header {
@@ -117,15 +119,15 @@ p {
 }
 
 .text {
-    background-color: rgba(255, 255, 255, 0.880);
-    padding: 10px;
+    background-color: rgba(226, 226, 226, 0.88);
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .item {
     background-color: rgba(255, 255, 255, 0.880);
-    padding: 10px;
+    padding: 0px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
