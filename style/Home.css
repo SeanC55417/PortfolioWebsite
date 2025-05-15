@@ -401,7 +401,7 @@ li {
 .slider-images {
     position: relative;
     flex: 1;
-    height: 500px;
+    height: 550px;
     overflow: hidden;
 }
 
@@ -483,6 +483,49 @@ a {
 a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
+}/* App Screenshot Gallery */
+.app-screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.screenshot {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: translateY(-5px);
+}
+
+.screenshot img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .app-screenshot-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .app-screenshot-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Media Queries */

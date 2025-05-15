@@ -159,22 +159,6 @@
                 </div>
                 
                 <div class="work-gallery">
-                    <div id="slider1" class="slider-container">
-                        <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
-                        <div class="slider-images">
-                            <img class="slide-img active" src="Images/Extraction.png" alt="Extraction Lab">
-                            <img class="slide-img" src="Images/Extraction2.png" alt="Lab Environment">
-                            <img class="slide-img" src="Images/Extraction3.png" alt="Extraction Question Screen">
-                        </div>
-                        <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
-                    </div>
-                    
-                    <div class="slider-dots" data-slider="slider1">
-                        <span class="dot active" data-index="0"></span>
-                        <span class="dot" data-index="1"></span>
-                        <span class="dot" data-index="2"></span>
-                    </div>
-                    
                     <div id="slider2" class="slider-container">
                         <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
                         <div class="slider-images">
@@ -192,12 +176,28 @@
                         <span class="dot" data-index="2"></span>
                         <span class="dot" data-index="3"></span>
                     </div>
+
+                    <div id="slider1" class="slider-container">
+                        <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                        <div class="slider-images">
+                            <img class="slide-img active" src="Images/Extraction.png" alt="Extraction Lab">
+                            <img class="slide-img" src="Images/Extraction2.png" alt="Lab Environment">
+                            <img class="slide-img" src="Images/Extraction3.png" alt="Extraction Question Screen">
+                        </div>
+                        <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
+                    </div>
+                    
+                    <div class="slider-dots" data-slider="slider1">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Add Projects Section -->
+    
+    <!-- Contact Section -->
     <section class="section" id="projects">
         <div class="container">
             <div class="section-header">
@@ -205,14 +205,48 @@
             </div>
             
             <div class="projects-container">
+                <!-- DreamShare Project Card -->
                 <div class="project-card">
-                    <h3>Project Coming Soon</h3>
-                    <p>Check back later for updates on my latest projects.</p>
+                    <h3>DreamShare</h3>
+                    <div class="job-header">
+                        <div class="job-title">
+                            <p>Flutterflow, Dart, Firebase</p>
+                        </div>
+                        <div class="job-date">3/01/25- 5/07/25</div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <ul>
+                            <li>Developed a social media app for logging and sharing dreams</li>
+                            <li>Integrated AI dream interpretation using an external API via API key authentication</li>
+                            <li>Implemented Net Promoter Score (NPS) question to measure user satisfaction</li>
+                            <li>Utilized A/B testing for UI layout</li>
+                            <li>Developed in an agile scrum methodology with 4 other students</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-screenshot-gallery">
+                        <div class="screenshot">
+                            <img src="Images/Dream.png" alt="DreamShare Home">
+                        </div>
+                        <div class="screenshot">
+                            <img src="Images/DreamProfile.png" alt="DreamShare Profile">
+                        </div>
+                        <div class="screenshot">
+                            <img src="Images/DreamFeed.png" alt="DreamShare Feed">
+                        </div>
+                        <div class="screenshot">
+                            <img src="Images/DreamAI.png" alt="DreamShare AI">
+                        </div>
+                        <div class="screenshot">
+                            <img src="Images/DreamTips.png" alt="DreamShare Tips">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
@@ -228,24 +262,24 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <h4>Email</h4>
-                            <p><a href="mailto:email@example.com">email@example.com</a></p>
+                            <p><a href="mailto:SeanChin55417@gmail.com">SeanChin55417@gmail.com</a></p>
                         </div>
                         
                         <div class="contact-method">
                             <h4>LinkedIn</h4>
-                            <p><a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
+                            <p><a href="https://linkedin.com/in/sean-chin417" target="_blank">linkedin.com/in/sean-chin417</a></p>
                         </div>
                         
                         <div class="contact-method">
                             <h4>GitHub</h4>
-                            <p><a href="https://github.com/username" target="_blank">github.com/username</a></p>
+                            <p><a href="https://github.com/SeanC55417" target="_blank">github.com/SeanC55417</a></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form-container">
                     <h3>Send Me a Message</h3>
-                    <form id="contact-form" onsubmit="sendEmail(event)">
+                    <form id="contact-form" method="POST" action="https://formsubmit.co/SeanChin55417@gmail.com">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -269,6 +303,7 @@
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Sean Chin. All rights reserved.</p>
