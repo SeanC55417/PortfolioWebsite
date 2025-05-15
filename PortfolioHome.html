@@ -3,173 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sean Chin - Portfolio</title>
+    <title>Sean Chin - Software Developer</title>
     <link rel="stylesheet" href="./style/Home.css" />
     <script src="PortfolioActions.js"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Sean Chin</h1>
-        <nav class="Nav">
-            <button onclick="RedirectHome()" class="NavButton">Home</button>
-            <button onclick="RedirectWorkHistory()" class="NavButton">Work History</button>
-            <button onclick="RedirectProjects()" class="NavButton">Projects</button>
-            <button onclick="RedirectContactInfo()" class="NavButton">Contact Information</button>
-        </nav>
+        <div class="header-content">
+            <h1>Sean Chin</h1>
+            <p class="tagline">Software Developer & CS Student</p>
+            <nav class="Nav">
+                <button onclick="RedirectHome()" class="NavButton active">Home</button>
+                <button onclick="RedirectWorkHistory()" class="NavButton">Work History</button>
+                <button onclick="RedirectProjects()" class="NavButton">Projects</button>
+                <button onclick="RedirectContactInfo()" class="NavButton">Contact Information</button>
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="verticalContainer">
-            <div class="text">
-                <h2>Career Objective</h2>
-                <p>
-                    My name is Sean Chin, and I am currently a student at the University of Rhode Island, 
-                    pursuing a major in computer science. I have always been interested in the field and 
-                    hope to one day become a software developer. I look forward to learning new skills and 
-                    building experience in the work space.
-                </p>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <!-- Replace with your profile photo -->
+                    <img src="./Images/me.png" alt="Sean Chin">
+                </div>
+                <div class="profile-info">
+                    <h2>Career Objective</h2>
+                    <p>
+                        I'm a computer science student at the University of Rhode Island with a passion for software development. 
+                        I'm dedicated to learning new technologies and building innovative solutions that solve real-world problems.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="text">
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header">
                 <h2>Education</h2>
-                <ul>
-                    <li>
-                        <a class="link" href="https://www.uri.edu/">University of Rhode Island</a>, <i>Kingston, RI</i><br>
-                        Bachelor of Applied Science - BS, Computer Science<br>
-                        2023-2025
-                    </li>
-                    <li>
-                        <a class="link" href="https://www.ccri.edu/">Community College of Rhode Island</a>, <i>Warwick, RI</i><br>
-                        400 East Avenue, Warwick, Rhode Island, <i>02886</i><br>
-                        2021-2023
-                    </li>
-                </ul>
-                <h4>Relevant Coursework</h4>
-                <p>Design & Analysis of Algorithm, Operating Systems and Networks, Data Structures & Algorithms, Programming for Data Science, Advance Java Programming, Net & Sys Security, Object-Oriented Programming, Programming in C++, Web Development</p>
             </div>
-        </div>
-        
-        <div class="">
-            <div class="text">
-                <h2>Technical Skills</h2>
-                <ul>
-                    <li>Languages: C#, Python, Java, C++, JavaScript, SQL, Dart</li>
-                </ul>
-                <div class="Logo">
-                    <img src="./Images/c-logo-icon-28402.png" alt="C# Logo">
-                    <img src="./Images/python-5-logo-png-transparent.png" alt="Python Logo">
-                    <img src="./Images/Java.png" alt="Java Logo">
-                    <img src="./Images/C++_logo.png" alt="C++ Logo">
-                    <img src="./Images/JavaScriptLogo.png" alt="JavaScript Logo">
-                    <img src="./Images/SQL_LOGO.png" alt="SQL Logo">
-                </div>
-                <ul>
-                    <li>Web/App Development: HTML, CSS, Flask, D3</li>
-                    <li>Tools: Unity, Blender, VSCode, Pycharm, Git, GitHub, Pygames, Flutterflow, Firebase</li>
-                </ul>
-                <div class="ToolsLogo">
-                    <img src="./Images/unity-logo-black-and-white.png" alt="Unity Logo">
-                    <img src="./Images/Blender_logo_no_text.png" alt="Blender Logo">
-                    <img src="./Images/VScodeLogo.png" alt="VSCode Logo">
-                    <img src="./Images/Git-Icon-1788C.png" alt="Git Logo">
-                    <img src="./Images/github.png" alt="Github Logo">
-                    <img src="./Images/Firebase.png" alt="Firebase Logo">
-                </div>
-            </div>
-    
-            <div class="text">
-                <h2>Soft Skills</h2>
-                <p>Problem Solving, Effective Communication, Teamwork, Self-Driven, Dependable, Hard Working</p>
-            </div>
-        </div>
-    </div>    
-
-    <div class="container", id="WorkHistoryTitle">
-        <h2><strong>Work History</strong></h2>
-    </div>
-
-    <div class="container">
-        <div class="verticalContainer">
-            <div class="item">
-                <h2>Work History</h2>
-                <div class="job-header">
-                    <div class="job-title">
-                        <strong>Software Developer Intern</strong>
-                        <br>University of Rhode Island
+            <div class="education-card">
+                <div class="education-item">
+                    <div class="education-details">
+                        <h3><a href="https://www.uri.edu/" class="link">University of Rhode Island</a></h3>
+                        <p class="location">Kingston, RI</p>
+                        <p class="degree">Bachelor of Applied Science - BS, Computer Science</p>
+                        <p class="year">2023-2025</p>
                     </div>
-                    <div class="job-date">9/24/23 - Present</div>
                 </div>
-                <ul>
-                    <li>Developed virtual lab environments in Unity, allowing users to simulate experiments with
-                    complex and expensive lab equipment</li>
-                    <li>Modeled and animated 3D assets using Blender</li>
-                    <li>Implemented the 3D and VR controls including the interactions for each procedure</li>
-                    <li>Optimized performance for the Meta Quest 3</li>
-                    <li>Contributed to presentations and demos</li>
-                </ul>
-            </div>
-
-            <div id="slider1" class="slider-container">
-                <!-- Button outside left side -->
-                <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
-                
-                <!-- Image container with multiple images -->
-                <div class="slider-images">
-                    <img class="slide-img active" src="Images/Extraction.png" alt="Garden">
-                    <img class="slide-img" src="Images/Extraction2.png" alt="Lab Environment">
-                    <img class="slide-img" src="Images/Extraction3.png" alt="ExtractionQuestion">
+                <div class="education-item">
+                    <div class="education-details">
+                        <h3><a href="https://www.ccri.edu/" class="link">Community College of Rhode Island</a></h3>
+                        <p class="location">Warwick, RI, 02886</p>
+                        <p class="year">2021-2023</p>
+                    </div>
                 </div>
-                
-                <!-- Button outside right side -->
-                <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
+                <div class="coursework">
+                    <h3>Relevant Coursework</h3>
+                    <p>Design & Analysis of Algorithm, Operating Systems and Networks, Data Structures & Algorithms, Programming for Data Science, Advance Java Programming, Net & Sys Security, Object-Oriented Programming, Programming in C++, Web Development</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Dots for first slider -->
-            <div class="slider-dots" data-slider="slider1">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
             </div>
             
-        </div>
-        
-        <div class="images">
-            <div class="verticalContainer">
-                <div id="slider2" class="slider-container">
-                    <!-- Button outside left side -->
-                    <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
-                    
-                    <!-- Image container with multiple images -->
-                    <div class="slider-images">
-                        <img class="slide-img active" src="Images/Garden.png" alt="Garden">
-                        <img class="slide-img" src="Images/Information.png" alt="Lab Environment">
-                        <img class="slide-img" src="Images/GardenTaxol.png" alt="Garden Taxol">
-                        <img class="slide-img" src="Images/Molecules.png" alt="Molecule Model">
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>C#, Python, Java, C++, JavaScript, SQL, Dart</p>
+                    <div class="Logo">
+                        <img src="./Images/c-logo-icon-28402.png" alt="C# Logo">
+                        <img src="./Images/python-5-logo-png-transparent.png" alt="Python Logo">
+                        <img src="./Images/Java.png" alt="Java Logo">
+                        <img src="./Images/C++_logo.png" alt="C++ Logo">
+                        <img src="./Images/JavaScriptLogo.png" alt="JavaScript Logo">
+                        <img src="./Images/SQL_LOGO.png" alt="SQL Logo">
                     </div>
-                    
-                    <!-- Button outside right side -->
-                    <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
                 </div>
                 
-                <!-- Dots for second slider -->
-                <div class="slider-dots" data-slider="slider2">
-                    <span class="dot active" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
-                    <span class="dot" data-index="3"></span>
+                <div class="skill-category">
+                    <h3>Web/App Development</h3>
+                    <p>HTML, CSS, Flask, D3</p>
                 </div>
-
-                <div class="item">
-                    <ul>
-                        <li>Contributed in the development of four scenes</li>
-                        <li>Modeled a replica of the URI Heber W. Youngken Jr. Medical Garden</li>
-                        <li>Students are able to interact with the plants showing each's medically significant molecules/compounds</li>
-                        <li>Students collect samples to run experiments inside the labs</li>
-                    </ul>
+                
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <p>Unity, Blender, VSCode, Pycharm, Git, GitHub, Pygames, Flutterflow, Firebase</p>
+                    <div class="ToolsLogo">
+                        <img src="./Images/unity-logo-black-and-white.png" alt="Unity Logo">
+                        <img src="./Images/Blender_logo_no_text.png" alt="Blender Logo">
+                        <img src="./Images/VScodeLogo.png" alt="VSCode Logo">
+                        <img src="./Images/Git-Icon-1788C.png" alt="Git Logo">
+                        <img src="./Images/github.png" alt="Github Logo">
+                        <img src="./Images/Firebase.png" alt="Firebase Logo">
+                    </div>
                 </div>
             </div>
-    </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+            </div>
+            
+            <div class="experience-card">
+                <div class="job-header">
+                    <div class="job-title">
+                        <h3>Software Developer Intern</h3>
+                        <p>University of Rhode Island</p>
+                    </div>
+                    <div class="job-date">September 2023 - Present</div>
+                </div>
+                
+                <div class="job-description">
+                    <ul>
+                        <li>Developed virtual lab environments in Unity, allowing users to simulate experiments with
+                        complex and expensive lab equipment</li>
+                        <li>Modeled and animated 3D assets using Blender</li>
+                        <li>Implemented the 3D and VR controls including the interactions for each procedure</li>
+                        <li>Optimized performance for the Meta Quest 3</li>
+                        <li>Contributed to presentations and demos</li>
+                    </ul>
+                </div>
+                
+                <div class="project-highlights">
+                    <h4>Project Highlights</h4>
+                    <ul>
+                        <li>Contributed to the development of four interactive scenes</li>
+                        <li>Modeled a replica of the URI Heber W. Youngken Jr. Medical Garden</li>
+                        <li>Developed interactive plant systems showing medically significant molecules/compounds</li>
+                        <li>Created sample collection mechanics for virtual lab experiments</li>
+                    </ul>
+                </div>
+                
+                <div class="work-gallery">
+                    <div id="slider1" class="slider-container">
+                        <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                        <div class="slider-images">
+                            <img class="slide-img active" src="Images/Extraction.png" alt="Extraction Lab">
+                            <img class="slide-img" src="Images/Extraction2.png" alt="Lab Environment">
+                            <img class="slide-img" src="Images/Extraction3.png" alt="Extraction Question Screen">
+                        </div>
+                        <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
+                    </div>
+                    
+                    <div class="slider-dots" data-slider="slider1">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                    
+                    <div id="slider2" class="slider-container">
+                        <button class="slider-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                        <div class="slider-images">
+                            <img class="slide-img active" src="Images/Garden.png" alt="Virtual Medical Garden">
+                            <img class="slide-img" src="Images/Information.png" alt="Plant Information Screen">
+                            <img class="slide-img" src="Images/GardenTaxol.png" alt="Garden Taxol Visualization">
+                            <img class="slide-img" src="Images/Molecules.png" alt="Molecule Model Visualization">
+                        </div>
+                        <button class="slider-btn next-btn" aria-label="Next image">&#10095;</button>
+                    </div>
+                    
+                    <div class="slider-dots" data-slider="slider2">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sean Chin. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // This script is included only for preview purposes.
+        // In the actual implementation, use the external PortfolioActions.js file.
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.slider-container');
+            
+            // Track current slide index and interval for each slider
+            const sliderStates = {};
+            const AUTO_SLIDE_INTERVAL = 5000; // Time in milliseconds between auto transitions (5 seconds)
+            
+            sliders.forEach(slider => {
+                const sliderId = slider.id;
+                const prevBtn = slider.querySelector('.prev-btn');
+                const nextBtn = slider.querySelector('.next-btn');
+                const slides = slider.querySelectorAll('.slide-img');
+                const dots = document.querySelectorAll(`.slider-dots[data-slider="${sliderId}"] .dot`);
+                
+                // Initialize state for this slider
+                sliderStates[sliderId] = {
+                    currentSlide: 0,
+                    autoPlayInterval: null,
+                    userInteracted: false,
+                    lastInteractionTime: Date.now()
+                };
+                
+                function showSlide(index) {
+                    // Handle wrapping around
+                    if (index < 0) {
+                        index = slides.length - 1;
+                    } else if (index >= slides.length) {
+                        index = 0;
+                    }
+                    
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    slides[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    sliderStates[sliderId].currentSlide = index;
+                }
+                
+                function handleUserInteraction() {
+                    sliderStates[sliderId].userInteracted = true;
+                    sliderStates[sliderId].lastInteractionTime = Date.now();
+                    
+                    // Stop auto-play temporarily
+                    if (sliderStates[sliderId].autoPlayInterval) {
+                        clearInterval(sliderStates[sliderId].autoPlayInterval);
+                        sliderStates[sliderId].autoPlayInterval = null;
+                    }
+                }
+                
+                function startAutoPlay() {
+                    // Clear any existing interval
+                    if (sliderStates[sliderId].autoPlayInterval) {
+                        clearInterval(sliderStates[sliderId].autoPlayInterval);
+                    }
+                    
+                    // Start a new interval
+                    sliderStates[sliderId].autoPlayInterval = setInterval(function() {
+                        // Only auto-advance if user hasn't interacted recently
+                        if (!sliderStates[sliderId].userInteracted) {
+                            const nextSlide = sliderStates[sliderId].currentSlide + 1;
+                            showSlide(nextSlide);
+                        } else {
+                            // Check if enough time has passed since last interaction
+                            const currentTime = Date.now();
+                            const timeSinceLastInteraction = currentTime - sliderStates[sliderId].lastInteractionTime;
+                            
+                            if (timeSinceLastInteraction >= AUTO_SLIDE_INTERVAL) {
+                                sliderStates[sliderId].userInteracted = false;
+                            }
+                        }
+                    }, AUTO_SLIDE_INTERVAL);
+                }
+                
+                // Set up event listeners
+                prevBtn.addEventListener('click', () => {
+                    handleUserInteraction();
+                    showSlide(sliderStates[sliderId].currentSlide - 1);
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    handleUserInteraction();
+                    showSlide(sliderStates[sliderId].currentSlide + 1);
+                });
+                
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        handleUserInteraction();
+                        const index = parseInt(dot.getAttribute('data-index'));
+                        showSlide(index);
+                    });
+                });
+                
+                // Pause auto-play when hovering over slider
+                slider.addEventListener('mouseenter', function() {
+                    handleUserInteraction();
+                });
+                
+                // Resume auto-play when mouse leaves
+                slider.addEventListener('mouseleave', function() {
+                    setTimeout(function() {
+                        const currentTime = Date.now();
+                        const timeSinceLastInteraction = currentTime - sliderStates[sliderId].lastInteractionTime;
+                        
+                        if (timeSinceLastInteraction >= AUTO_SLIDE_INTERVAL) {
+                            sliderStates[sliderId].userInteracted = false;
+                            startAutoPlay();
+                        }
+                    }, AUTO_SLIDE_INTERVAL);
+                });
+                
+                // Start auto-play
+                startAutoPlay();
+            });
+        });
+    </script>
 </body>
 </html>

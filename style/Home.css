@@ -1,389 +1,306 @@
-/* Base styles */
+/* Modern Portfolio Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #e0e0e0;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e2e2e2;
+    --dark-gray: #666;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
 html, body {
     min-height: 100vh;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* background-image: url('../Images/background.png'); */
-    background-color: #ffffff;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    position: relative;
+    font-family: 'Georgia', serif;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 body {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(226, 241, 254, 0.85); /* Semi-transparent background */
-    z-index: -1;
+    overflow-x: hidden;
 }
 
 /* Typography */
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+h1, h2, h3, h4 {
     color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 h2 {
-    font-size: 1.5rem;
-    margin: 10px;;
-    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin-top: 8px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.6;
-    /* margin-bottom: 15px; */
-    margin: 10px;
+    margin-bottom: 1rem;
 }
 
+/* Header & Navigation */
+header {
+    background-color: white;
+    padding: 2rem 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
 
-/* Navigation */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+}
+
 .Nav {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 .NavButton {
-    padding: 10px 20px;
-    background-color: #c5e1f5;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--light-gray);
+    color: var(--text-color);
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-    min-width: 120px;
+    transition: var(--transition);
+    font-weight: 500;
 }
 
-.NavButton:hover {
-    background-color: #a1c4e1;
+.NavButton:hover, .NavButton.active {
+    background-color: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
 }
 
-/* Container Layout */
+/* Section Layouts */
+.section {
+    padding: 3rem 0;
+}
+
+.section:nth-child(even) {
+    background-color: white;
+}
+
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.verticalContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-    min-width: 100px;
-    max-width: 800px;
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 10px 0;
-}
-
-.job-title {
-    flex: 1;
-    padding-left: 10px;
-}
-
-.job-date {
-    text-align: right;
-    color: #666;
-    font-style: italic;
-}
-
-.text {
-    background-color: rgba(226, 226, 226, 0.88);
-    padding: 5px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.item {
-    background-color: rgba(255, 255, 255, 0.880);
-    padding: 0px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Add these CSS updates to your Home.css file */
-
-/* Make all slider containers consistent */
-.slider-container {
-    position: relative;
+/* Profile/About Section */
+.profile-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 5px; /* Reduced from 15px to create less space */
-    gap: 0px;
-}
-
-/* Standardize the slider dots positioning */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    position: relative; /* Add position relative */
-    z-index: 5; /* Ensure dots appear above other elements */
-    clear: both; /* Prevent floating issues */
-}
-
-/* Fix the images container and layout */
-.images {
-    flex: 1;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    /* margin-bottom: 20px; Add consistent margin to the bottom of image sections */
-}
-
-
-/* Lists */
-ul {
-    list-style-position: inside;
-    padding-left: 15px;
-}
-
-li {
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-/* Links */
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.link {
-    color: #2980b9;
-}
-
-/* Logo containers */
-.Logo, .ToolsLogo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin: 25px 0;
-    padding: 6px;
+    gap: 2rem;
+    background-color: white;
     border-radius: 8px;
-}
-
-/* Logo images */
-.Logo img, .ToolsLogo img {
-    width: 75;
-    height: 75px;
-    object-fit: contain;
-    transition: transform 0.4s ease;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
-}
-
-/* Hover effect for logos */
-.Logo img:hover, .ToolsLogo img:hover {
-    transform: scale(1.15);
-}
-
-/* Ensure proper spacing before and after logo sections */
-.Logo + ul, .ToolsLogo + div {
-    margin-top: 20px;
-}
-
-ul + .Logo, ul + .ToolsLogo {
-    margin-top: 15px;
-}
-
-/* Profile Container */
-.profile-container {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
 }
 
 .profile-image {
-    width: 350px;
-    height: 350px;
+    flex: 0 0 300px;
+    height: 300px;
     overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    margin-bottom: 15px;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
 }
 
-/* Responsive adjustments for the profile image */
-@media (max-width: 1000px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .item, .profile-container {
-        width: 90%;
-        max-width: 550px;
-    }
-    
-    .profile-container {
-        order: -1;
-        margin-bottom: 20px;
-    }
+.profile-info {
+    flex: 1;
+    padding: 1.5rem;
 }
 
-@media (max-width: 600px) {
-    .profile-image {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .item, .profile-container {
-        padding: 15px;
-    }
-}
-.project-item {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Education Section */
+.education-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
 }
 
-.project-item:last-child {
+.education-item {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.education-item:last-child {
     border-bottom: none;
-    padding-bottom: 0;
 }
 
-.project-item h3 {
-    color: #34495e;
-    margin-bottom: 10px;
+.location, .degree, .year {
+    margin-bottom: 0.25rem;
 }
 
-/* Contact Form Styles */
-.contact-details {
-    margin-bottom: 30px;
+.location {
+    font-style: italic;
+    color: var(--dark-gray);
 }
 
-.contact-form h3 {
-    margin-bottom: 15px;
+.year {
+    color: var(--dark-gray);
+    font-weight: 500;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.coursework {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--medium-gray);
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
-.form-group input,
-.form-group textarea {
+.skill-category {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+/* Logo Styles */
+.Logo, .ToolsLogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.Logo img, .ToolsLogo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+.Logo img:hover, .ToolsLogo img:hover {
+    transform: scale(1.15);
+}
+
+/* Experience Section */
+.experience-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.job-title {
+    flex: 1;
+}
+
+.job-title h3 {
+    margin-bottom: 0.25rem;
+}
+
+.job-date {
+    color: var(--dark-gray);
+    font-style: italic;
+    text-align: right;
+}
+
+.job-description, .project-highlights {
+    margin-bottom: 1.5rem;
+}
+
+ul {
+    list-style-position: outside;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Work Gallery/Portfolio */
+.work-gallery {
+    margin-top: 2rem;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
 }
-
-.form-group textarea {
-    resize: vertical;
-}
-
-/* Form status messages */
-#form-status {
-    margin-bottom: 15px;
-}
-
-.success-message {
-    padding: 10px;
-    background-color: rgba(76, 175, 80, 0.2);
-    color: #2e7d32;
-    border-radius: 4px;
-    border-left: 4px solid #2e7d32;
-    margin-bottom: 15px;
-}
-
-.error-message {
-    padding: 10px;
-    background-color: rgba(244, 67, 54, 0.2);
-    color: #c62828;
-    border-radius: 4px;
-    border-left: 4px solid #c62828;
-    margin-bottom: 15px;
-}
-
-.submit-btn {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #2980b9;
-}
-
-.submit-btn:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
-
-#WorkHistory {
-    max-width: 600px;
-}
-
 
 .slider-images {
     position: relative;
-    flex: 1; /* Take up available space between buttons */
-    height: 380px; /* Adjust height as needed */
+    flex: 1;
+    height: 500px;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .slide-img {
@@ -399,37 +316,41 @@ ul + .Logo, ul + .ToolsLogo {
     opacity: 1;
 }
 
-#WorkHistoryTitle {
-    background-color: #e0e0e0;
-    padding: 100px 10px
-}
-
-/* Vertical rectangle buttons outside image */
 .slider-btn {
-    height: 380px; /* Same height as image */
-    width: 45px; /* Width of the button */
-    background-color: rgb(211, 211, 211, 0.8);
-    color: #333;
+    height: 100%;
+    width: 50px;
+    background-color: rgba(200, 196, 196, 0.6);
+    color: white;
     border: none;
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 24px;
-    transition: background-color 0.3s;
-    flex-shrink: 0; /* Prevent buttons from shrinking */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .slider-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(52, 152, 219, 0.9);
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0.75rem 0 1.5rem 0;
 }
 
 .dot {
-    height: 12px;
-    width: 12px;
-    background-color: #bbb;
+    height: 10px;
+    width: 10px;
+    background-color: var(--medium-gray);
     border-radius: 50%;
     display: inline-block;
     margin: 0 5px;
@@ -438,120 +359,79 @@ ul + .Logo, ul + .ToolsLogo {
 }
 
 .dot.active {
-    background-color: #3498db;
+    background-color: var(--primary-color);
 }
 
-/* Add these styles to your Home.css file */
-
-/* Grid layout for DreamShare images matching exact layout in screenshot */
-.dreamshare-grid {
-    display: grid;
-    /* Create a 3x2 grid with specific column and row sizes */
-    grid-template-columns: repeat(3, 115px); /* 3 columns at exactly 224px width (from screenshot) */
-    grid-template-rows: repeat(2, 225px); /* 2 rows at exactly 220px height (from screenshot) */
-    gap: 0; /* No gap between grid items */
-    max-width: 672px; /* 3 columns × 224px */
-    max-height: 440px; /* 2 rows × 220px */
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
 }
 
-.dreamshare-grid img {
-    width: 115px;
-    height: 225x;
-    object-fit: contain; /* Preserves aspect ratio without cropping */
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-/* Media query for responsive grid - maintain aspect ratio on smaller screens */
-@media (max-width: 768px) {
-    .dreamshare-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-        grid-template-rows: repeat(3, auto);   /* 3 rows, height determined by content */
-        gap: 0;
-        max-width: 100%;
-        max-height: none;
-    }
-    
-    .dreamshare-grid img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 224/220; /* Maintain the exact aspect ratio from the original */
-    }
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-    .dreamshare-grid {
-        grid-template-columns: 1fr; /* 1 column on small screens */
-        grid-template-rows: repeat(6, auto); /* 6 rows, height determined by content */
-        max-width: 100%;
-    }
-}
-
-/* Remove the old DreamShareImages styles that we're replacing */
-.DreamShareImages {
-    display: none;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .slider-container {
-        flex-direction: row; /* Keep horizontal layout */
-    }
-    
-    .slider-btn {
-        width: 30px;
-        height: 300px; /* Smaller height for mobile */
-        font-size: 18px;
-    }
-    
-    .slider-images {
-        height: 300px;
-    }
-}
-
-/* For very small screens */
-@media (max-width: 480px) {
-    .slider-container {
-        gap: 5px; /* Less space between buttons and image */
-    }
-    
-    .slider-btn {
-        width: 25px;
-    }
-}
 /* Media Queries */
+@media (max-width: 992px) {
+    .profile-card {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        flex: 0 0 250px;
+        width: 100%;
+    }
+    
+    .job-header {
+        flex-direction: column;
+    }
+    
+    .job-date {
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
     }
     
-    footer {
-        font-size: 0.9rem;
+    h2 {
+        font-size: 1.5rem;
     }
     
-    .Nav {
-        flex-direction: column;
-        align-items: center;
+    .section {
+        padding: 2rem 0;
     }
     
-    .NavButton {
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .contact-form {
-        width: 100%;
+    .slider-images {
+        height: 400px;
     }
 }
 
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
+@media (max-width: 576px) {
+    .NavButton {
+        padding: 0.6rem 1rem;
     }
     
-    h1 {
-        font-size: 1.8rem;
+    .slider-images {
+        height: 350px;
     }
     
-    .text, .item {
-        padding: 15px;
+    .slider-btn {
+        width: 40px;
     }
 }
