@@ -397,11 +397,16 @@ ul + .Logo, ul + .ToolsLogo {
     opacity: 1;
 }
 
+#WorkHistoryTitle {
+    background-color: #e0e0e0;
+    padding: 100px 10px
+}
+
 /* Vertical rectangle buttons outside image */
 .slider-btn {
     height: 380px; /* Same height as image */
     width: 45px; /* Width of the button */
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgb(211, 211, 211, 0.8);
     color: #333;
     border: none;
     border-radius: 8px;
@@ -434,34 +439,53 @@ ul + .Logo, ul + .ToolsLogo {
     background-color: #3498db;
 }
 
-/* Project image container */
-.DreamShareImages {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Add these styles to your Home.css file */
+
+/* Grid layout for DreamShare images matching exact layout in screenshot */
+.dreamshare-grid {
+    display: grid;
+    /* Create a 3x2 grid with specific column and row sizes */
+    grid-template-columns: repeat(3, 115px); /* 3 columns at exactly 224px width (from screenshot) */
+    grid-template-rows: repeat(2, 225px); /* 2 rows at exactly 220px height (from screenshot) */
+    gap: 0; /* No gap between grid items */
+    max-width: 672px; /* 3 columns × 224px */
+    max-height: 440px; /* 2 rows × 220px */
 }
 
-/* Project image sizing */
-.DreamShareImages img {
-    max-width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.dreamshare-grid img {
+    width: 115px;
+    height: 225x;
+    object-fit: contain; /* Preserves aspect ratio without cropping */
 }
 
-/* Make the container layout more responsive */
+/* Media query for responsive grid - maintain aspect ratio on smaller screens */
 @media (max-width: 768px) {
-    .DreamShareImages img {
-        max-height: 300px;
+    .dreamshare-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        grid-template-rows: repeat(3, auto);   /* 3 rows, height determined by content */
+        gap: 0;
+        max-width: 100%;
+        max-height: none;
+    }
+    
+    .dreamshare-grid img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 224/220; /* Maintain the exact aspect ratio from the original */
     }
 }
 
 @media (max-width: 480px) {
-    .DreamShareImages img {
-        max-height: 250px;
+    .dreamshare-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+        grid-template-rows: repeat(6, auto); /* 6 rows, height determined by content */
+        max-width: 100%;
     }
+}
+
+/* Remove the old DreamShareImages styles that we're replacing */
+.DreamShareImages {
+    display: none;
 }
 
 /* Mobile adjustments */
