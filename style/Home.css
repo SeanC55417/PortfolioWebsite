@@ -1,103 +1,4 @@
-/* Project Section */
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.project-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-}
-
-/* Contact Section */
-.contact-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-}
-
-.contact-methods {
-    margin-top: 1.5rem;
-}
-
-.contact-method {
-    margin-bottom: 1rem;
-}
-
-.contact-method h4 {
-    margin-bottom: 0.25rem;
-    color: var(--primary-dark);
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--medium-gray);
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.submit-btn {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.submit-btn:hover {
-    background-color: var(--primary-dark);
-}
-
-.success-message {
-    padding: 0.75rem;
-    background-color: rgba(46, 204, 113, 0.2);
-    color: #27ae60;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-.error-message {
-    padding: 0.75rem;
-    background-color: rgba(231, 76, 60, 0.2);
-    color: #c0392b;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .contact-card {
-        grid-template-columns: 1fr;
-    }
-}/* Modern Portfolio Styles */
+/* Modern Portfolio Styles */
 * {
     margin: 0;
     padding: 0;
@@ -113,7 +14,7 @@
     --medium-gray: #e2e2e2;
     --dark-gray: #666;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --transition: all 1s ease;
 }
 
 html, body {
@@ -439,10 +340,6 @@ li {
     background-color: rgba(52, 152, 219, 0.9);
 }
 
-.slider-btn:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -464,26 +361,21 @@ li {
     background-color: var(--primary-color);
 }
 
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: auto;
+/* Projects Section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
-/* Links */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: var(--transition);
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
 }
 
-a:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-}/* App Screenshot Gallery */
+/* App Screenshot Gallery */
 .app-screenshot-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -515,20 +407,109 @@ a:hover {
     border-radius: 8px;
 }
 
+/* Contact Section */
+.contact-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.contact-methods {
+    margin-top: 1.5rem;
+}
+
+.contact-method {
+    margin-bottom: 1rem;
+}
+
+.contact-method h4 {
+    margin-bottom: 0.25rem;
+    color: var(--primary-dark);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.success-message {
+    padding: 0.75rem;
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    padding: 0.75rem;
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #c0392b;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 /* Media queries for responsive design */
-@media (max-width: 768px) {
-    .app-screenshot-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-}
-
-@media (max-width: 576px) {
-    .app-screenshot-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Media Queries */
 @media (max-width: 992px) {
     .profile-card {
         flex-direction: column;
@@ -565,6 +546,14 @@ a:hover {
     .slider-images {
         height: 575px;
     }
+    
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .app-screenshot-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
 }
 
 @media (max-width: 576px) {
@@ -578,5 +567,9 @@ a:hover {
     
     .slider-btn {
         width: 40px;
+    }
+    
+    .app-screenshot-gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

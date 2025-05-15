@@ -1,23 +1,6 @@
 // Portfolio Actions
 // Main JavaScript file for Sean Chin's Portfolio
 
-// Legacy redirect functions (for multi-page version)
-function RedirectHome() {
-    window.location.href = "PortfolioHome.html";
-}
-
-function RedirectWorkHistory() {
-    window.location.href = "WorkHistory.html";
-}
-
-function RedirectProjects() {
-    window.location.href = "Projects.html";
-}
-
-function RedirectContactInfo() {
-    window.location.href = "ContactInfo.html";
-}
-
 // Init function - runs when page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize smooth scrolling
@@ -25,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize slider functionality
     initSliders();
-    
-    // Initialize form submission (if form exists)
-    initContactForm();
 });
 
 // Smooth scrolling for navigation
@@ -79,76 +59,6 @@ function initSmoothScrolling() {
             }
         });
     });
-}
-
-// Email sending functionality using EmailJS
-function sendEmail(event) {
-    event.preventDefault(); // Prevent form from submitting normally
-    
-    // Show sending indicator
-    const submitButton = document.getElementById('submit-btn');
-    const originalButtonText = submitButton.innerText;
-    submitButton.innerText = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Check if EmailJS is defined
-    if (typeof emailjs !== 'undefined') {
-        // Send email using EmailJS
-        emailjs.send('service_id', 'template_id', {
-            from_name: name,
-            reply_to: email,
-            message: message
-        })
-        .then(function() {
-            // Show success message
-            document.getElementById('form-status').innerHTML = 
-                '<div class="success-message">Message sent successfully!</div>';
-            
-            // Reset form
-            document.getElementById('contact-form').reset();
-            
-            // Reset button
-            submitButton.innerText = originalButtonText;
-            submitButton.disabled = false;
-        })
-        .catch(function(error) {
-            // Show error message
-            document.getElementById('form-status').innerHTML = 
-                '<div class="error-message">Failed to send message. Please try again.</div>';
-            
-            // Log error to console
-            console.error('EmailJS error:', error);
-            
-            // Reset button
-            submitButton.innerText = originalButtonText;
-            submitButton.disabled = false;
-        });
-    } else {
-        // If EmailJS is not available, display a demo message
-        document.getElementById('form-status').innerHTML = 
-            '<div class="success-message">Message sent successfully! (Demo only)</div>';
-        
-        // Reset form
-        document.getElementById('contact-form').reset();
-        
-        // Reset button
-        submitButton.innerText = originalButtonText;
-        submitButton.disabled = false;
-    }
-}
-
-// Initialize contact form
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        // Event listener already handled via onsubmit="sendEmail(event)" in HTML
-        // This function is for additional form initialization if needed
-    }
 }
 
 // Enhanced Slider Functionality
