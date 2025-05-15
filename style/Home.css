@@ -282,39 +282,6 @@ li {
     margin-bottom: 0.5rem;
 }
 
-/* Work Gallery/Portfolio */
-.work-gallery {
-    margin-top: 2rem;
-}
-
-/* Slider Styles */
-.slider-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 0.5rem;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.slider-images {
-    position: relative;
-    flex: 1;
-    height: 550px;
-    overflow: hidden;
-}
-
-.slide-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
 .slide-img.active {
     opacity: 1;
 }
@@ -507,6 +474,70 @@ a {
 a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
+}
+
+/* Add this to completely fix the slider container */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Fix for the top/bottom gray areas */
+.work-gallery {
+    margin-top: 2rem;
+    background-color: transparent;
+}/* Update slider image styles to maintain aspect ratio */
+
+.slider-images {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 16/9; /* This sets a consistent aspect ratio */
+    max-height: 550px;
+    overflow: hidden;
+    background-color: transparent; /* Remove background color */
+}
+
+.slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Changed back to cover to fill the space */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-color: transparent; /* Remove background color */
+}
+
+/* Update mobile responsive settings */
+@media (max-width: 768px) {
+    .slider-images {
+        aspect-ratio: 16/9;
+        max-height: 400px;
+    }
+    
+    .slider-btn {
+        height: 100%; /* Make buttons full height of container */
+        padding: 0 0.5rem;
+        background-color: rgba(214, 214, 214, 0.6); /* More transparent buttons */
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-images {
+        max-height: 300px;
+    }
+    
+    /* Ensure slider container has no padding or margin */
+    .slider-container {
+        padding: 0;
+        margin: 0 0 0.5rem 0;
+    }
 }
 
 /* Media queries for responsive design */
