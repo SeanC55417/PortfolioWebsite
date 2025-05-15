@@ -1,4 +1,7 @@
 // Improved Portfolio Actions
+// Main JavaScript file for Sean Chin's Portfolio
+
+// Legacy redirect functions (for multi-page version)
 function RedirectHome() {
     window.location.href = "PortfolioHome.html";
 }
@@ -13,6 +16,69 @@ function RedirectProjects() {
 
 function RedirectContactInfo() {
     window.location.href = "ContactInfo.html";
+}
+
+// Init function - runs when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize smooth scrolling
+    initSmoothScrolling();
+    
+    // Initialize slider functionality
+    initSliders();
+    
+    // Initialize form submission (if form exists)
+    initContactForm();
+});
+
+// Smooth scrolling for navigation
+function initSmoothScrolling() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a.NavButton').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Update active state in navigation
+                document.querySelectorAll('a.NavButton').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Smooth scroll to the target section
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Highlight active section based on scroll position
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        
+        // Get all sections and corresponding nav items
+        const sections = document.querySelectorAll('section[id]');
+        const navButtons = document.querySelectorAll('a.NavButton');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navButtons.forEach(navButton => {
+                    navButton.classList.remove('active');
+                    if (navButton.getAttribute('href') === '#' + sectionId) {
+                        navButton.classList.add('active');
+                    }
+                });
+            }
+        });
+    });
 }
 
 // Email sending functionality using EmailJS
@@ -62,13 +128,34 @@ function sendEmail(event) {
     });
 }
 
+// Initialize contact form
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            // If EmailJS is not set up, show a demo message
+            if (typeof emailjs === 'undefined') {
+                event.preventDefault();
+                
+                // Display a success message (for demo purposes)
+                document.getElementById('form-status').innerHTML = 
+                    '<div class="success-message">Message sent successfully! (Demo only)</div>';
+                
+                // Reset form
+                contactForm.reset();
+            }
+            // Otherwise, the sendEmail function will be called via the onsubmit attribute
+        });
+    }
+}
+
 // Enhanced Slider Functionality
 // Track current slide index and interval for each slider
 const sliderStates = {};
 const AUTO_SLIDE_INTERVAL = 5000; // Time in milliseconds between auto transitions (5 seconds)
 
-// Initialize slider once DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize sliders
+function initSliders() {
     // Find all sliders on the page
     const sliders = document.querySelectorAll('.slider-container');
     
@@ -97,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sliderStates[sliderId].lastInteractionTime = Date.now();
         }
     });
-});
+}
 
 function initializeSlider(sliderId) {
     const slider = document.getElementById(sliderId);

@@ -14,10 +14,10 @@
             <h1>Sean Chin</h1>
             <p class="tagline">Software Developer & CS Student</p>
             <nav class="Nav">
-                <button onclick="RedirectHome()" class="NavButton active">Home</button>
-                <button onclick="RedirectWorkHistory()" class="NavButton">Work History</button>
-                <button onclick="RedirectProjects()" class="NavButton">Projects</button>
-                <button onclick="RedirectContactInfo()" class="NavButton">Contact Information</button>
+                <a href="#about" class="NavButton active">Home</a>
+                <a href="#experience" class="NavButton">Work History</a>
+                <a href="#projects" class="NavButton">Projects</a>
+                <a href="#contact" class="NavButton">Contact Information</a>
             </nav>
         </div>
     </header>
@@ -87,19 +87,27 @@
                         <img src="./Images/python-5-logo-png-transparent.png" alt="Python Logo">
                         <img src="./Images/Java.png" alt="Java Logo">
                         <img src="./Images/C++_logo.png" alt="C++ Logo">
+                        <img src="./Images/CLogo.png" alt="Dart Logo">
                         <img src="./Images/JavaScriptLogo.png" alt="JavaScript Logo">
                         <img src="./Images/SQL_LOGO.png" alt="SQL Logo">
+                        
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3>Web/App Development</h3>
-                    <p>HTML, CSS, Flask, D3</p>
+                    <p>HTML, CSS, Flask, D3, Flutterflow</p>
+                    <div class="Logo">
+                        <img src="./Images/HtmlLogo.png" alt="C# Logo">
+                        <img src="./Images/CSSLogo.png" alt="Python Logo">
+                        <img src="./Images/flaskLogo.png" alt="Java Logo">
+                        <img src="./Images/flutterflow-logo.png" alt="C++ Logo">
+                    </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3>Tools & Platforms</h3>
-                    <p>Unity, Blender, VSCode, Pycharm, Git, GitHub, Pygames, Flutterflow, Firebase</p>
+                    <p>Unity, Blender, VSCode, Pycharm, Git, GitHub, Pygame, Firebase</p>
                     <div class="ToolsLogo">
                         <img src="./Images/unity-logo-black-and-white.png" alt="Unity Logo">
                         <img src="./Images/Blender_logo_no_text.png" alt="Blender Logo">
@@ -113,7 +121,7 @@
         </div>
     </section>
 
-    <!-- Work Experience Section -->
+    <!-- Experience Section -->
     <section class="section" id="experience">
         <div class="container">
             <div class="section-header">
@@ -189,16 +197,133 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Sean Chin. All rights reserved.</p>
-    </footer>
+    <!-- Add Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projects</h2>
+            </div>
+            
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Project Coming Soon</h3>
+                    <p>Check back later for updates on my latest projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Information</h2>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out for opportunities or questions about my work.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <h4>Email</h4>
+                            <p><a href="mailto:email@example.com">email@example.com</a></p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/username" target="_blank">github.com/username</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3>Send Me a Message</h3>
+                    <form id="contact-form" onsubmit="sendEmail(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div id="form-status"></div>
+                        
+                        <button type="submit" id="submit-btn" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Scripts -->
     <script>
         // This script is included only for preview purposes.
         // In the actual implementation, use the external PortfolioActions.js file.
         document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a.NavButton').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Update active state in navigation
+                        document.querySelectorAll('a.NavButton').forEach(nav => {
+                            nav.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Smooth scroll to the target section
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight active section based on scroll position
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                // Get all sections and corresponding nav items
+                const sections = document.querySelectorAll('section[id]');
+                const navButtons = document.querySelectorAll('a.NavButton');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navButtons.forEach(navButton => {
+                            navButton.classList.remove('active');
+                            if (navButton.getAttribute('href') === '#' + sectionId) {
+                                navButton.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Slider functionality
             const sliders = document.querySelectorAll('.slider-container');
             
             // Track current slide index and interval for each slider
@@ -311,7 +436,27 @@
                 // Start auto-play
                 startAutoPlay();
             });
+            
+            // Form submission handling (if applicable)
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Display a success message (for demo purposes)
+                    document.getElementById('form-status').innerHTML = 
+                        '<div class="success-message">Message sent successfully! (Demo only)</div>';
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
         });
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sean Chin. All rights reserved.</p>
+    </footer>
 </body>
 </html>
