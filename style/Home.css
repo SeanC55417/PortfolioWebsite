@@ -286,23 +286,6 @@ li {
     opacity: 1;
 }
 
-.slider-btn {
-    height: 250px;
-    width: 50px;
-    background-color: rgba(214, 214, 214, 0.803);
-    color: white;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 2rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 .slider-btn:hover {
     background-color: rgba(52, 152, 219, 0.9);
 }
@@ -476,7 +459,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Add this to completely fix the slider container */
+/* Fix slider container and image issues */
+.work-gallery {
+    margin-top: 2rem;
+    background-color: transparent;
+}
+
 .slider-container {
     position: relative;
     display: flex;
@@ -489,29 +477,66 @@ a:hover {
     background-color: transparent;
 }
 
-/* Fix for the top/bottom gray areas */
-.work-gallery {
-    margin-top: 2rem;
-    background-color: transparent;
-}/* Update slider image styles to maintain aspect ratio */
-
 .slider-images {
     position: relative;
     flex: 1;
-    aspect-ratio: 26/14; /* approximately 1.86:1 */
-    max-height: 550px;
-    overflow: hidden;
-    background-color: transparent; /* Remove background color */
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    background-color: transparent;
 }
 
 .slide-img {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Changed back to cover to fill the space */
+    object-fit: contain; /* Changed from cover to contain */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    background-color: transparent; /* Remove background color */
+    background-color: #f5f5f5; /* Light background to see image boundaries */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background-color: rgba(214, 214, 214, 0.7);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.slider-btn.prev-btn {
+    left: 0;
+}
+
+.slider-btn.next-btn {
+    right: 0;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .slider-btn {
+        width: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-btn {
+        width: 30px;
+        font-size: 1.2rem;
+    }
 }
 
 /* Update mobile responsive settings */
