@@ -498,7 +498,7 @@ a:hover {
 .slider-images {
     position: relative;
     flex: 1;
-    aspect-ratio: 16/9; /* This sets a consistent aspect ratio */
+    aspect-ratio: 26/14; /* approximately 1.86:1 */
     max-height: 550px;
     overflow: hidden;
     background-color: transparent; /* Remove background color */
@@ -547,7 +547,7 @@ a:hover {
     }
     
     .profile-image {
-        flex: 0 0 250px;
+        flex: 0 0 450px;
         width: 100%;
     }
     
